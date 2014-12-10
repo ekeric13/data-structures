@@ -3,19 +3,26 @@ var Stack = function(){
 
   // Use an object with numeric keys to store values
   var storage = {};
-  var counter = 0;
+  var count = 0;
 
   // Implement the methods below
   someInstance.push = function(value){
-    counter += 1;
-    storage[counter] = value;
+    storage[count] = value;
+    count -= 1;
   };
 
   someInstance.pop = function(){
-    counter -= 1;
-    var popVal = storage[counter];
-    delete storage[counter];
-    return popVal;
+    // counter -= 1;
+    // var popVal = storage[counter];
+    // delete storage[counter];
+    // return popVal;
+
+    if (count){
+      count -= 1;
+    }
+    var result = storage[count];
+    delete storage[count];
+    return result;
   };
 
   someInstance.size = function(){
