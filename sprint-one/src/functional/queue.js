@@ -6,8 +6,8 @@ var Queue = function(){
 
   // Implement the methods below
 
-  someInstance.enqueue = function(value){
-  };
+  someInstance.enqueue = function(value) {
+  }
 
   someInstance.dequeue = function(){
   };
