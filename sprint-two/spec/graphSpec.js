@@ -43,6 +43,15 @@ describe('graph', function() {
     expect(graph.hasEdge('apples', 'satsumas')).to.equal(true);
   });
 
+  it('should remove edges that were inserted', function() {
+    graph.addNode('puppies');
+    graph.addNode('apples');
+    graph.addEdge('puppies', 'apples');
+    expect(graph.hasEdge('puppies', 'apples')).to.equal(true);
+    graph.removeEdge('puppies', 'apples');
+    expect(graph.hasEdge('puppies', 'apples')).to.equal(false);
+  });
+
   it('should execute a callback on each node in the graph', function() {
     var connectToSatsumas = function(item) {
       graph.addEdge(item, 'satsumas');
