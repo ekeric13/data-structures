@@ -41,6 +41,13 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should have an accurate size', function() {
+    hashTable.insert('kittens', 'bunnies');
+    hashTable.insert('Steven', 'Seagal');
+    // storage = [[['kittens', 'bunnies']], [['Steven', 'Seagal']]];
+    expect(hashTable.sizeArr().to.equal(2));
+  });
+
   // (Extra credit! Remove the extra "x" when you want the following tests to run)
   xit('should double in size when needed', function() {
     _.each(people, function(person) {

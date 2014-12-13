@@ -29,6 +29,20 @@ var LimitedArray = function(limit){
     }
   };
 
+  limitedArray.size = function(){
+    // var newArray = [];
+    // for ( var i = 0; i< storage.length; i++){
+    //   if (storage[i] !== undefined){
+    //     newArray.push(storage[i])
+    //   }
+    // }
+    // return newArray.length;
+  };
+
+  limitedArray.expose = function() {
+    return storage;
+  };
+
   var checkLimit = function(index){
     if(typeof index !== 'number'){ throw new Error('setter requires a numeric index for its first argument'); }
     if(limit <= index){ throw new Error('Error trying to access an over-the-limit index'); }

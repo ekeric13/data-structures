@@ -29,7 +29,12 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
 
-  var mainElement = this._storage.get(i);
+  if (this._storage.get(i)){
+    var mainElement = this._storage.get(i)
+  } else {
+    return null;
+  }
+
   for ( var j = 0; j < mainElement.length; j++){
     if ( mainElement[j][0] === k){
       return mainElement[j][1]
@@ -54,7 +59,9 @@ HashTable.prototype.remove = function(k){
 
 };
 
-
+HashTable.prototype.sizeArr = function() {
+  return this._storage.size();
+};
 
 /*
  * Complexity: What is the time complexity of the above functions?
